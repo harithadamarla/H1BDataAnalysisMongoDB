@@ -22,39 +22,30 @@
           </div>
       </div>
 
-       <div class="row row_custom">
+       <div class="row row_custom"> <!--for toggle on mapp starts here-->
           <div class="col-md-12 ">
               <div id="floating-panel">
-                <input type="checkbox" onclick="toggleHeatmap()">Toggle Heatmap</button>
-                <input type="checkbox" onclick="toggleHeatmap()">Toggle Heatmap</button>
-                <input type="checkbox" onclick="toggleHeatmap()">Toggle Heatmap</button>
-                <input type="checkbox" onclick="toggleHeatmap()">Toggle Heatmap</button>
+                <input type="checkbox" onclick="toggleHeatmap()" id="1" checked>CERTIFIED</button>
+                <input type="checkbox" onclick="toggleHeatmap()" id="2" checked>CERTIFIED-WITHDRAWN</button>
+                <input type="checkbox" onclick="toggleHeatmap()" id="3" checked>WITHDRAWN</button>
+                <input type="checkbox" onclick="toggleHeatmap()" id="4" checked>DENIED</button>
               </div>
-              <div id="map" class="map">
-              </div>
-
+              <div id="map" class="map"></div> <!--map starts and ends here-->
           </div>
+       </div> <!--for toggle on map ends here-->
 
+
+
+        <div class="row row_custom">
+              <div class="col-md-6 ">
+                <canvas id="myChart3" ></canvas>
+              </div>
+
+              <div class="col-md-6 ">
+                <canvas id="myChart4" ></canvas> 
+              </div>
         </div>
-
-
-
-      <div class="row row_custom">
-        <div class="col-md-6 ">
-          <canvas id="myChart3" ></canvas>
-        </div>
-
-        <div class="col-md-6 ">
-          <canvas id="myChart4" ></canvas> 
-
-        </div>
-      </div>
     </div>
-
-      
-     
-
-
 
       <!-- including script chart.js -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
@@ -63,12 +54,10 @@
       <script src="./js/viz.js"></script>
 
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-      <script 
-      src="./js/map.js">
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJuhHwXtGVdWP5Ot4Kqjaz6VRCqCZDLyA&libraries=visualization&callback=initMap">
-  </script>
+      <script src="./js/map.js"></script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJuhHwXtGVdWP5Ot4Kqjaz6VRCqCZDLyA&libraries=visualization&callback=initMap">
+      </script>
 
 
 </body>

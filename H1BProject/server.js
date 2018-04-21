@@ -26,6 +26,7 @@ app.get('/', function (req, res) {
 //chart1 starts here
 app.get('/getChart1Data', function (req, res) {
   // res.send('Hello World!')
+  // console.log("Helloooo Haritha");
   MongoClient.connect(url, function(err, db) {
 	if (err){
 	 throw err; 
@@ -37,10 +38,15 @@ app.get('/getChart1Data', function (req, res) {
 		]).limit(10).toArray(function(err, result) {
 		    if (err){ 
 		    	throw err;
+		    	console.log("error max");
 		    }
 	    	res.json({data: result});
 		});
+
+
+
 	});
+  // console.log("I am about to return");
 
 })// chart1 ends here
 
@@ -124,10 +130,32 @@ app.get('/getChart4Data', function (req, res){
 } ) // chart4 ends here
 
 
+//map starts here
+app.get('/getMapData', function (req, res){
+  // res.send('Hello World!')
+  MongoClient.connect(url, function(err, db) {
+	if (err){
+	 throw err; 
+	}
+	var dbo = db.db("h1b");
 
+	dbo.collection("h1b").aggregate( [ { $project : { lat : 1 , lon : 1 , CASE_STATUS: 1 } } ] ).toArray(function(err, result) {
+		    if (err){ 
+		    	throw err;
+		    }
+	    	res.json({data: result});
+		});
+	} );
 
+	// dbo.collection("h1b").find(1000).toArray(function(err, result) {
+	// 	    if (err){ 
+	// 	    	throw err;
+	// 	    }
+	//     	res.json({data: result});
+	// 	});
+	// } );
 
-
+} ) // map ends here
 
 
 

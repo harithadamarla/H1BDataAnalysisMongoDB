@@ -1,81 +1,85 @@
 //chart1 starts here
 $.getJSON( "/getChart1Data", function( result ) {
-  	
-  	console.log(result);
+  	// console.log("sqlNoSQL");
+  	//console.log(result);
   	var data = [];
   	var companyNames=[];
   	// result.data.length
-  	for(var i = 0; i < 6; i++) {
+  	for(var i = 0; i < result.data.length; i++) {
 	    var obj = result.data[i];
-		//console.log(result.data);
- 		companyNames.push(obj._id.substring(0,9));
+		  //console.log("hi");
+      // console.log(result.data);
+ 		  companyNames.push(obj._id.substring(0,9));
 	    data.push(obj.total);
 
 	}
 
-
 var ctx = document.getElementById("myChart1").getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-         labels: companyNames,
-        datasets: [{
-            // label: ' Top 10 sponsored companyNames',
-            data: data,
-            
-            backgroundColor: [
-                "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            
-        }]
-    },
-    options: {
+								    type: 'bar',
+								    data: {
+										         labels: companyNames,
 
-    	title: {
-    display: true,
-    text: 'Top 10 sponsored roles',
-    position: 'top'
-},
+										        datasets: [{
+										            
+										            data: data,
+										            
+										            backgroundColor: [
+										                "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+										                'rgba(255, 159, 64, 0.2)'
+										            ],
+										            
+										        }]
+								    	   },
+								    options: {
+								    			legend: {
+												            display: true,
+												            position:'top',
+												            labels: {
+												                fontColor: 'rgb(255, 99, 132)'
+												            }
+												        },
 
-    
-        scales: {
+										    	title: {
+														    display: true,
+														    text: 'Top 10 sponsoring companies',
+														    position: 'top'
+														},
 
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true,
-                    fontSize:17,
-                    autoSkip:false
-                }
-            }],
-            xAxes:[{
-            	ticks: {
-                    autoSkip:false,
-                    fontSize:13,
-                   
-                    
-                }
+										    
+										        scales: {
 
-            }]
-
-        }
-    }
-});
-}); // chart1 ends here
+															yAxes: [{
+										                				ticks: {
+										                    						beginAtZero:true,
+																                    fontSize:17,
+																                    autoSkip:false
+										                						}
+										            				}],
+										            		xAxes:[{
+										            					ticks: {
+																                    autoSkip:false,
+																                    fontSize:13,
+																                }
+																	}]
+														}
+								    		}
+								});
+							}); // chart1 ends here
 
 
 //chart2 starts here
 
 $.getJSON( "/getChart2Data", function( result ) {
   	
-  	console.log(result);
+  	//console.log(result);
   	var data = [];
-  	var companyNames=[];
+  	var jobTitles=[];
   	// result.data.length
   	for(var i = 0; i < 6; i++) {
 		var obj = result.data[i];
 		//console.log(result.data);
- 		companyNames.push(obj._id);
+ 		jobTitles.push(obj._id);
 	    data.push(obj.total);
 
 	}
@@ -84,7 +88,7 @@ var ctx = document.getElementById("myChart2").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: companyNames,
+        labels: jobTitles,
         datasets: [{
            
             data: data,
@@ -126,7 +130,7 @@ var myChart = new Chart(ctx, {
 // chart3 starts here
 $.getJSON( "/getChart3Data", function( result ) {
   	
-  	console.log(result);
+  	// console.log(result);
   	var data = [];
   	var companyNames=[];
   	
@@ -167,25 +171,30 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true,
-                    fontSize:17,
-                    autoSkip:false
-                }
-            }],
-            xAxes:[{
-            	ticks: {
-                    autoSkip:false,
-                    fontSize:13
-                    
-                }
+						title: {
+								    display: true,
+								    text: 'Case statuses',
+								    position: 'top'
+								},
+				        scales: {
+				            yAxes: [{
+						                ticks: {
+						                    beginAtZero:true,
+						                    fontSize:17,
+						                    autoSkip:false
+						                }
+				            		}],
+				            xAxes:[{
+						            	ticks: {
+						                    autoSkip:false,
+						                    fontSize:13
+						                    
+						                }
 
-            }]
+				            		}]
 
-        }
-    }
+				        		}
+    		}
 });
 
 }); //chart3 ends here
@@ -198,12 +207,12 @@ $.getJSON( "/getChart4Data", function( result ) {
   	// console.log(result);
   	var data = [];
   	var years=[];
-  	console.log(result);
-  	for(var i = result.data.length-1; i >= 0; i--) {
+  	//console.log(result);
+  	for(var i = 0; i <= result.data.length-1; i++) {
 		var obj = result.data[i];
 		//console.log(result.data);
  		years.push(obj._id);
-	    data.push(obj.count);
+	   data.push(obj.count);
 
 	}
 
@@ -213,7 +222,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: years,
         datasets: [{
-            label: '2016 vs 2015',
+            // label: '2015 vs 2016',
             data: data,
             
             backgroundColor: [
@@ -230,6 +239,12 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+
+    	title: {
+								    display: true,
+								    text: 'no. of applicants in 2016vs 2015',
+								    position: 'top'
+								},
     	
  
          showLines: true
