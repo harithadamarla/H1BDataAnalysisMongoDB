@@ -1,7 +1,7 @@
 //chart1 starts here
 $.getJSON( "/getChart1Data", function( result ) {
-  	// console.log("sqlNoSQL");
-  	//console.log(result);
+  	console.log("check here");
+  	console.log(result);
   	var data = [];
   	var companyNames=[];
   	// result.data.length
@@ -18,18 +18,89 @@ var ctx = document.getElementById("myChart1").getContext('2d');
 var myChart = new Chart(ctx, {
 								    type: 'bar',
 								    data: {
-										         labels: companyNames,
+										         // labels: companyNames,
 
 										        datasets: [{
+										            label:companyNames[0],
+										            data: [data[0]],
+										            backgroundColor:"#3e95cd"
+										           
 										            
-										            data: data,
-										            
-										            backgroundColor: [
-										                "#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
-										                'rgba(255, 159, 64, 0.2)'
-										            ],
-										            
-										        }]
+										        },
+                            {
+                                label:companyNames[1],
+                                data: [data[1]],
+                                backgroundColor:"#8e5ea2"
+                               
+                                
+                            },
+                            {
+                                label:companyNames[2],
+                                data: [data[2]],
+                                
+                                backgroundColor: "#3cba9f"
+    
+                            },
+                            {
+                                label:companyNames[3],
+                                data: [data[3]],
+                                
+                                backgroundColor: "#e8c3b9"
+
+                                
+                            },
+                            {
+                                label:companyNames[4],
+                                data: [data[4]],
+                                
+                                backgroundColor:  "#c45850"
+                                  
+                                    
+                                
+                                
+                            },
+                            {
+                                label:companyNames[5],
+                                data: [data[5]],
+                                
+                                backgroundColor: "#994d00"
+                                   
+                                    
+                                
+                                
+                            },
+                            {
+                                label:companyNames[6],
+                                data: [data[6]],
+                                
+                                backgroundColor:  "#333300"
+                             
+                            },
+                            {
+                                label:companyNames[7],
+                                data: [data[7]],
+                                
+                                backgroundColor: "#339933"
+                               
+                            },
+                            {
+                                label:companyNames[8],
+                                data: [data[8]],
+                                
+                                backgroundColor: "#4d0026"
+                          
+                            },
+                            {
+                                label:companyNames[9],
+                                data: [data[9]],
+                                
+                                backgroundColor: "#b3b300"
+        
+                                
+                            } 
+                            ]
+
+                           
 								    	   },
 								    options: {
 								    			legend: {
@@ -146,26 +217,66 @@ var ctx = document.getElementById("myChart3").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: companyNames,
+        // labels: companyNames,
         datasets: [{
-            label: 'CASE_STATUS for data_engineer role',
-            data: data,
+            label: companyNames[0],
+            data: [data[0]],
+            
+            backgroundColor: [
+               
+                'rgba(255, 206, 86, 0.2)',
+                
+            ],
+            borderColor: [
+                
+                'rgba(255, 206, 86, 1)',
+                
+            ],
+            borderWidth: 1
+        },
+        {
+            label: companyNames[1],
+            data:  [data[1]],
+            
+            backgroundColor: [
+                
+                'rgba(75, 192, 192, 0.2)',
+                
+            ],
+            borderColor: [
+               
+                'rgba(75, 192, 192, 1)',
+               
+            ],
+            borderWidth: 1
+        },
+        {
+            label: companyNames[2],
+            data: [data[2]],
             
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
+                
+            ],
+            borderWidth: 1
+        },
+        {
+            label: companyNames[3],
+            data:  [data[3]],
+            
+            backgroundColor: [
+               
+                'rgba(54, 162, 235, 0.2)',
+                
+            ],
+            borderColor: [
+                
                 'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                
             ],
             borderWidth: 1
         }]
